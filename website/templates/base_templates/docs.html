@@ -1,0 +1,40 @@
+{% extends "base_templates/base.html" %}
+
+{% block content %}
+
+<div class="col-md-3">
+  <ul class="nav nav-pills nav-stacked">
+    <li {% if not sub %}class="active"{% endif %}>
+      <a href="{{ url_for('docs', lang_code=g.current_lang) }}">{{ _("docs") }}</a>
+    </li>
+    <li {% if sub == 'beginners' %}class="active"{% endif %}>
+      <a href="{{ url_for('docs_route', lang_code=g.current_lang, sub='beginners') }}">{{ _("beginners") }}</a>
+    </li>
+    <li {% if sub == 'man-pages' %}class="active"{% endif %}>
+      <a href="{{ url_for('docs_route', lang_code=g.current_lang, sub='man-pages') }}">{{ _("manual pages") }}</a>
+    </li>
+    <li {% if sub == 'handbook' %}class="active"{% endif %}>
+      <a href="{{ url_for('docs_route', lang_code=g.current_lang, sub='handbook') }}">{{ _("handbook") }}</a>
+    </li>
+    <li {% if sub == 'publications' %}class="active"{% endif %}>
+      <a href="{{ url_for('docs_route', lang_code=g.current_lang, sub='publications') }}">{{ _("publications") }}</a>
+    </li>
+    <li {% if sub == 'documentation-project' %}class="active"{% endif %}>
+      <a href="{{ url_for('docs_route', lang_code=g.current_lang, sub='documentation-project') }}">{{ _("documentation project") }}</a>
+    </li>
+    <li {% if sub == 'archive' %}class="active"{% endif %}>
+      <a href="{{ url_for('docs_route', lang_code=g.current_lang, sub='archive') }}">{{ _("archive") }}</a>
+    </li>
+  </ul>
+</div>
+
+<div class="col-md-9">
+  <div class="row">
+    <p>docs: subjects and topics and links to chapters</p>
+    <p>publications: books and articles online, web resources</p>
+
+    {% include include_template %}
+  </div>
+</div>
+
+{% endblock %}

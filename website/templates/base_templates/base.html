@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="static/assets/ico/favicon.ico">
+
+    <title>The FreeBSD Project</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="masthead">
+        <div class="row">
+          <div class="col-md-8">
+            <a href="{{ url_for('index', lang_code=g.current_lang) }}"><img src="{{ url_for('static', filename='img/logo-full.png') }}"></a>
+          </div>
+          <div class="col-md-4">
+            <div class="base-sidemasthead">
+              <div class="base-langs">
+                <ul id="lang-choice">
+                  <li><a href="/de/" data-lang='de_DE.ISO8859-1'>de</a> | </li>
+                  <li><a href="/en/" data-lang='en_US.ISO8859-1'>en</a> | </li>
+                  <li><a href="/es/" data-lang='es_ES.ISO8859-1'>es</a> | </li>
+                  <li><a href="/fr/" data-lang='fr_FR.ISO8859-1'>fr</a> | </li>
+                  <li><a href="/hu/" data-lang='hu_HU.ISO8859-2'>hu</a> | </li>
+                  <li><a href="/it/" data-lang='it_IT.ISO8859-15'>it</a> | </li>
+                  <li><a href="/jp/" data-lang='ja_JP.eucJP'>jp</a> | </li>
+                  <li><a href="/nl/" data-lang='nl_NL.ISO8859-1'>nl</a> | </li>
+                  <li><a href="/ru/" data-lang='ru_RU.KOI8-R'>ru</a> | </li>
+                  <li><a href="/zh/" data-lang='zh_CN.UTF-8'>zh_CN</a></li>
+                </ul>
+              </div>
+              <div class="form-inline base-search">
+                <form>
+                  <div class="input-group">
+                    <input class="form-control" type="search" placeholder="search">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ul class="nav nav-justified">
+          <li><a href="{{ url_for('about', lang_code=g.current_lang) }}">{{ _('about') }}</a></li>
+          <li><a href="{{ url_for('docs', lang_code=g.current_lang) }}">{{ _('docs') }}</a></li>
+          <li><a href="{{ url_for('community', lang_code=g.current_lang) }}">{{ _('community') }}</a></li>
+          <li><a href="{{ url_for('ports', lang_code=g.current_lang) }}">{{ _('ports') }}</a></li>
+          <li><a href="{{ url_for('support', lang_code=g.current_lang) }}">{{ _('support') }}</a></li>
+        </ul>
+      </div>
+
+      <!-- Content -->
+      <div class="row">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+
+      <!-- Site footer -->
+      <div class="footer">
+        <div class="container">
+        <div class="base-submenu">
+          <ul>
+            <li>
+            <b>{{ _("Shortcuts") }}:</b>
+              <a href="">{{ _('Mailing List') }}</a> |
+              <a href="">{{ _('Report a Bug') }}</a> |
+              <a href="">{{ _('FAQ') }}</a> |
+              <a href="">{{ _('Handbook') }}</a> |
+              <a href="">{{ _('Ports') }}</a>
+            </li>
+            <li>
+            <b>{{ _("About") }}:</b>
+              <a href="">{{ _("Introduction") }}</a> |
+              <a href="">{{ _("Advocacy") }}</a> |
+              <a href="">{{ _("Marketing") }}</a> |
+              <a href="">{{ _("Privacy Policy") }}</a>
+            </li>
+            <li>
+            <b>{{ _("Community") }}:</b>
+              <a href="">{{ _("Mailing List") }}</a> |
+              <a href="">{{ _("Forums") }}</a> |
+              <a href="">{{ _("User Groups") }}</a> |
+              <a href="">{{ _("Events") }}</a> |
+              <a href="">{{ _("Q&amp;A (external)") }}</a>
+            </li>
+            <li>
+            <b>{{ _("Support") }}:</b>
+              <a href="">{{ _("Vendors") }}</a> |
+              <a href="">{{ _("Security Information") }}</a> |
+              <a href="">{{ _("Bug Reports") }}</a>
+            </li>
+            <li>
+            <b>{{ _("Foundation") }}:</b>
+              <a href="">{{ _("Site") }}</a> |
+              <a href="">{{ _("Monetary Donations") }}</a> |
+              <a href="">{{ _("Hardware Donations") }}</a>
+            </li>
+          </ul>
+
+        </div>
+
+        <p><a href="#">{{ _("Site Map") }}</a> | <a href="#">{{ _("Legal Notices") }}</a> | {% trans %}&copy; 1995–2014 The FreeBSD Project. All rights reserved. The mark FreeBSD is a registered trademark of The FreeBSD Foundation and is used by The FreeBSD Project with the permission of {% endtrans %}<a href="https://www.freebsdfoundation.org/documents/Guidelines.shtml">{{ _("The FreeBSD Foundation") }}</a>. <a href="#">{{ _("Contact") }}</a></p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript">
+    </script>
+    {% block js %}
+    {% endblock %}
+  </body>
+</html>

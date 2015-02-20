@@ -1,0 +1,34 @@
+{% extends "base_templates/base.html" %}
+
+{% block content %}
+
+<div class="col-md-3">
+  <ul class="nav nav-pills nav-stacked">
+    <li {% if not sub %}class="active"{% endif %}>
+      <a href="{{ url_for('community', lang_code=g.current_lang) }}">{{ _("community") }}</a>
+    </li>
+    <li {% if sub == 'contributing' %}class="active"{% endif %}>
+      <a href="{{ url_for('community_route', lang_code=g.current_lang, sub='contributing') }}">{{ _("contributing") }}</a>
+    </li>
+    <li {% if sub == 'release-engineering' %}class="active"{% endif %}>
+      <a href="{{ url_for('community_route', lang_code=g.current_lang, sub='release-engineering') }}">{{ _("release engineering") }}</a>
+    </li>
+    <li {% if sub == 'platforms' %}class="active"{% endif %}>
+      <a href="{{ url_for('community_route', lang_code=g.current_lang, sub='platforms') }}">{{ _("platforms") }}</a>
+    </li>
+    <li {% if sub == 'events' %}class="active"{% endif %}>
+      <a href="{{ url_for('community_route', lang_code=g.current_lang, sub='events') }}">{{ _("events") }}</a>
+    </li>
+  </ul>
+</div>
+
+<div class="col-md-9">
+  <div class="row">
+    <p>mailing lists, forums, irc, newsgroups, user groups</p>
+    <p>source code repos, project ideas, tickets</p>
+    <p>under contributing: developer's handbook, porter's handbook, project ideas</p>
+    {% include include_template %}
+  </div>
+</div>
+
+{% endblock %}

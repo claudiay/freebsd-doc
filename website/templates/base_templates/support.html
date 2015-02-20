@@ -1,0 +1,28 @@
+{% extends "base_templates/base.html" %}
+
+{% block content %}
+<div class="col-md-3">
+  <ul class="nav nav-pills nav-stacked">
+    <li {% if not sub %}class="active"{% endif %}>
+      <a href="{{ url_for('support', lang_code=g.current_lang) }}">{{ _("Support") }}</a>
+    </li>
+    <li {% if sub == 'vendors' %}class="active"{% endif %}>
+      <a href="{{ url_for('support_route', lang_code=g.current_lang, sub='vendors') }}">{{ _("Vendors") }}</a>
+    </li>
+    <li {% if sub == 'security-information' %}class="active"{% endif %}>
+      <a href="{{ url_for('support_route', lang_code=g.current_lang, sub='security-information') }}">{{ _("Security Information") }}</a>
+    </li>
+    <li {% if sub == 'web-resources' %}class="active"{% endif %}>
+      <a href="{{ url_for('support_route', lang_code=g.current_lang, sub='web-resources') }}">{{ _("Web Resources") }}</a>
+    </li>
+  </ul>
+</div>
+
+<div class="col-md-9">
+  <div class="row">
+    <p>bug report -> submit a problem report</p>
+    {% include include_template %}
+  </div>
+</div>
+
+{% endblock %}
